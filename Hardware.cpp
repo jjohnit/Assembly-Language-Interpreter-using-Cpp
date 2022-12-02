@@ -8,10 +8,6 @@ Hardware::Hardware() {
     register_a = register_b = program_counter = zero_result = overflow = 0;
 }
 
-const Instruction *Hardware::getProgramMemory() const {
-    return program_memory;
-}
-
 int Hardware::getRegisterA() const {
     return register_a;
 }
@@ -50,4 +46,8 @@ int Hardware::getOverflow() const {
 
 void Hardware::setOverflow(int overflow) {
     Hardware::overflow = overflow;
+}
+
+Hardware::~Hardware() {
+
 }

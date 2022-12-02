@@ -9,19 +9,18 @@
 #include <string>
 #include "Hardware.h"
 
-class Instruction {
-public:
-    Instruction(string instruction);
+using namespace std;
 
-protected:
-    static Hardware hardware;
+class Instruction {
     std::string printString, argValue;
 
+public:
+    Instruction();
+    Instruction(string instruction);
     virtual void execute() = 0;
-
 };
 
-class DEC : Instruction {
+class DEC : public Instruction {
 public:
     explicit DEC(const string &instruction);
 
@@ -29,7 +28,7 @@ private:
     void execute();
 };
 
-class LDA : Instruction {
+class LDA : public Instruction {
 public:
     explicit LDA(const string &instruction);
 
@@ -37,7 +36,7 @@ private:
     void execute();
 };
 
-class LDB : Instruction {
+class LDB : public Instruction {
 public:
     explicit LDB(const string &instruction);
 
@@ -45,7 +44,7 @@ private:
     void execute();
 };
 
-class LDI : Instruction {
+class LDI : public Instruction {
 public:
     explicit LDI(const string &instruction);
 
@@ -53,7 +52,7 @@ private:
     void execute();
 };
 
-class STR : Instruction {
+class STR : public Instruction {
 public:
     explicit STR(const string &instruction);
 
@@ -61,7 +60,7 @@ private:
     void execute();
 };
 
-class XCH : Instruction {
+class XCH : public Instruction {
 public:
     explicit XCH(const string &instruction);
 
@@ -69,7 +68,7 @@ private:
     void execute();
 };
 
-class JMP : Instruction {
+class JMP : public Instruction {
 public:
     explicit JMP(const string &instruction);
 
@@ -77,7 +76,7 @@ private:
     void execute();
 };
 
-class JZS : Instruction {
+class JZS : public Instruction {
 public:
     explicit JZS(const string &instruction);
 
@@ -85,7 +84,7 @@ private:
     void execute();
 };
 
-class JVS : Instruction {
+class JVS : public Instruction {
 public:
     explicit JVS(const string &instruction);
 
@@ -93,7 +92,7 @@ private:
     void execute();
 };
 
-class ADD : Instruction {
+class ADD : public Instruction {
 public:
     explicit ADD(const string &instruction);
 
@@ -101,7 +100,7 @@ private:
     void execute();
 };
 
-class HLT : Instruction {
+class HLT : public Instruction {
 public:
     explicit HLT(const string &instruction);
 

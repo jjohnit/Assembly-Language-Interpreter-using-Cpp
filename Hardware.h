@@ -8,19 +8,19 @@
 
 #include <string>
 #include <unordered_map>
-#include "Instruction.h"
+
+class Instruction;
 
 class Hardware {
 
 //    std::string data_memory[128];
     std::unordered_map<std::string, int> data_memory;
-    Instruction program_memory[128];
+    Instruction* program_memory[128];
     int register_a, register_b, program_counter, zero_result, overflow;
 
 public:
     Hardware();
 
-    const Instruction *getProgramMemory() const;
 
     int getRegisterA() const;
 
@@ -41,6 +41,8 @@ public:
     int getOverflow() const;
 
     void setOverflow(int overflow);
+
+    virtual ~Hardware();
 };
 
 
