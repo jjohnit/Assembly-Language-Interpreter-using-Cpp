@@ -18,6 +18,7 @@ public:
     Instruction();
     Instruction(string instruction);
     static Hardware* hardware;
+    void print();
     virtual int execute() = 0;
 };
 

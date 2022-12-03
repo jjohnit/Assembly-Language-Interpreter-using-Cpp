@@ -47,7 +47,9 @@ void Hardware::setProgramCounter(int programCounter) {
 }
 
 void Hardware::incrementProgramCounter() {
-    program_counter++;
+    if(program_counter < 127){
+        program_counter++;
+    }
 }
 
 int Hardware::getZeroResult() const {
@@ -85,7 +87,8 @@ int Hardware::executeNextInstruction() {
         return 0;
     }
     else {
-        showInstructions(program_counter);
+//        showInstructions(program_counter);
+        program_memory[program_counter]->print();
         int isHalt = program_memory[program_counter]->execute();
         return isHalt;
     }

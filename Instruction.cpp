@@ -27,6 +27,10 @@ Instruction::Instruction(std::string instruction) {
 //    cout << "data members are " << printString << " & " << argValue << std::endl;
 }
 
+void Instruction::print() {
+    cout << printString << " " << argValue << endl;
+}
+
 DEC::DEC(const std::string &instruction) : Instruction(instruction) {}
 
 LDA::LDA(const string &instruction) : Instruction(instruction) {}
