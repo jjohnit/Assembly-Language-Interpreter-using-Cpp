@@ -8,6 +8,10 @@
 
 Hardware::Hardware() {
     register_a = register_b = program_counter = zero_result = overflow = 0;
+    // Initialize the values of program data to null
+    for(auto a : program_memory){
+        a = nullptr;
+    }
 }
 
 void Hardware::setDataMemory(std::string key, int value) {

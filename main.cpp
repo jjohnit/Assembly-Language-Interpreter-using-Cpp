@@ -80,6 +80,7 @@ int main() {
 
     // Reset the program counter to start from the 0th position
     hardware.setProgramCounter(0);
+    int isHalt;
 
     while (true){
         cout << "s -> Execute a single line of code\n"
@@ -98,7 +99,13 @@ int main() {
                 // Execute the instruction
                 while(true) {
                     // break when there is no instruction to execute or after executing halt
-                    if (hardware.executeNextInstruction() <= 0){
+                    isHalt = hardware.executeNextInstruction();
+                    if (isHalt < 0){
+                        break;
+                    }
+                    // If the file ends without a Halt
+                    else if (isHalt == 0) {
+                        hardware.display();
                         break;
                     }
                 }
