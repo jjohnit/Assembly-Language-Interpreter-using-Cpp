@@ -67,6 +67,12 @@ build CMakeFiles/Project_4.dir/Instruction.cpp.obj: CXX_COMPILER__Project_4_Debu
   OBJECT_DIR = CMakeFiles\Project_4.dir
   OBJECT_FILE_DIR = CMakeFiles\Project_4.dir
 
+build CMakeFiles/Project_4.dir/ALI.cpp.obj: CXX_COMPILER__Project_4_Debug C$:/Users/jjasan2/CLionProjects/Project_4/ALI.cpp || cmake_object_order_depends_target_Project_4
+  DEP_FILE = CMakeFiles\Project_4.dir\ALI.cpp.obj.d
+  FLAGS = -g -std=gnu++11
+  OBJECT_DIR = CMakeFiles\Project_4.dir
+  OBJECT_FILE_DIR = CMakeFiles\Project_4.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Project_4
@@ -75,7 +81,7 @@ build CMakeFiles/Project_4.dir/Instruction.cpp.obj: CXX_COMPILER__Project_4_Debu
 #############################################
 # Link the executable Project_4.exe
 
-build Project_4.exe: CXX_EXECUTABLE_LINKER__Project_4_Debug CMakeFiles/Project_4.dir/main.cpp.obj CMakeFiles/Project_4.dir/Hardware.cpp.obj CMakeFiles/Project_4.dir/Instruction.cpp.obj
+build Project_4.exe: CXX_EXECUTABLE_LINKER__Project_4_Debug CMakeFiles/Project_4.dir/main.cpp.obj CMakeFiles/Project_4.dir/Hardware.cpp.obj CMakeFiles/Project_4.dir/Instruction.cpp.obj CMakeFiles/Project_4.dir/ALI.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Project_4.dir
