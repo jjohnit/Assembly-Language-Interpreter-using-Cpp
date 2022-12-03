@@ -102,5 +102,4 @@ void Hardware::display() {
 }
 
 Hardware::~Hardware() {
-
 }

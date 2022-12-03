@@ -113,20 +113,32 @@ int JVS::execute() {
 }
 
 int ADD::execute() {
-    hardware->setRegisterA(hardware->getRegisterA() + hardware->getRegisterB());
-    if (hardware->getRegisterA() == 0) {
-        hardware->setZeroResult(1);
-    }
-    else {
-        hardware->setZeroResult(0);
-    }
-    if (hardware->getRegisterA() > (pow(2, 31) - 1) ||
-            hardware->getRegisterA() < -(pow(2, 31))) {
+    // Check for overflow before adding the values
+    if (hardware->getRegisterA() >= 0 && hardware->getRegisterB() >= 0
+        && (hardware->getRegisterA() > INT_MAX - hardware->getRegisterB())) {
         hardware->setOverflow(1);
     }
-    else {
-        hardware->setOverflow(0);
+    else if (hardware->getRegisterA() < 0 && hardware->getRegisterB() < 0
+             && (hardware->getRegisterA() < INT_MIN - hardware->getRegisterB())) {
+        hardware->setOverflow(1);
     }
+    // Add the values if there won't be an overflow
+    else {
+        hardware->setRegisterA(hardware->getRegisterA() + hardware->getRegisterB());
+        if (hardware->getRegisterA() == 0) {
+            hardware->setZeroResult(1);
+        }
+        else {
+            hardware->setZeroResult(0);
+        }
+    }
+//    if (hardware->getRegisterA() > (pow(2, 31) - 1) ||
+//            hardware->getRegisterA() < -(pow(2, 31))) {
+//        hardware->setOverflow(1);
+//    }
+//    else {
+//        hardware->setOverflow(0);
+//    }
     hardware->incrementProgramCounter();
     return 1;
 }
