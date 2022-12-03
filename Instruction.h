@@ -17,7 +17,7 @@ public:
     string printString, argValue;
     Instruction();
     Instruction(string instruction);
-    static Hardware hardware;
+    static Hardware* hardware;
     virtual int execute() = 0;
 };
 

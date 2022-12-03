@@ -21,6 +21,9 @@ class Hardware {
 public:
     Hardware();
 
+    void setDataMemory(std::string key, int value);
+
+    int getDataMemory(std::string key);
 
     int getRegisterA() const;
 
@@ -34,6 +37,8 @@ public:
 
     void setProgramCounter(int programCounter);
 
+    void incrementProgramCounter();
+
     int getZeroResult() const;
 
     void setZeroResult(int zeroResult);
@@ -44,7 +49,7 @@ public:
 
     void addInstruction(Instruction* i);
 
-    void showInstructions();
+    void showInstructions(int index);
 
     int executeNextInstruction();
 

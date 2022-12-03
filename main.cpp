@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     Hardware hardware;
-    Instruction::hardware = hardware;
+    Instruction::hardware = &hardware;
 
     // For reading a file
     fstream file;
@@ -74,7 +74,6 @@ int main() {
     while(true) {
         // break when there is no instruction to execute or after executing halt
         if (hardware.executeNextInstruction() <= 0){
-            hardware.display();
             break;
         }
     }

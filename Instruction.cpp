@@ -3,13 +3,15 @@
 //
 
 #include <cstring>
-#include "Instruction.h"
 #include "iostream"
 #include <sstream>
+#include <cmath>
+
+#include "Instruction.h"
 
 using namespace std;
 
-Hardware Instruction::hardware;
+Hardware* Instruction::hardware;
 
 Instruction::Instruction() {
     printString = argValue = "";
@@ -48,56 +50,93 @@ ADD::ADD(const string &instruction) : Instruction(instruction) {}
 HLT::HLT(const string &instruction) : Instruction(instruction) {}
 
 int DEC::execute() {
-    cout << "DEC Execute" << std::endl;
+    hardware->setDataMemory(argValue, 0);
+    hardware->incrementProgramCounter();
     return 1;
 }
 
 int LDA::execute() {
-    cout << "LDA Execute";
+    hardware->setRegisterA(hardware->getDataMemory(argValue));
+    hardware->incrementProgramCounter();
     return 1;
 }
 
 int LDB::execute() {
-    cout << "LDB Execute";
+    hardware->setRegisterB(hardware->getDataMemory(argValue));
+    hardware->incrementProgramCounter();
     return 1;
 }
 
 int LDI::execute() {
-    cout << "LDI Execute";
+    hardware->setRegisterA(stoi(argValue));
+    hardware->incrementProgramCounter();
     return 1;
 }
 
 int STR::execute() {
-    cout << "STR Execute";
+    hardware->setDataMemory(argValue, hardware->getRegisterA());
+    hardware->incrementProgramCounter();
     return 1;
 }
 
 int XCH::execute() {
-    cout << "XCH Execute";
+    int temp = hardware->getRegisterA();
+    hardware->setRegisterA(hardware->getRegisterB());
+    hardware->setRegisterB(temp);
+    hardware->incrementProgramCounter();
     return 1;
 }
 
 int JMP::execute() {
-    cout << "JMP Execute";
+    hardware->setProgramCounter(stoi(argValue));
     return 1;
 }
 
 int JZS::execute() {
-    cout << "JZS Execute";
+    if(hardware->getZeroResult() == 1){
+        hardware->setProgramCounter(stoi(argValue));
+    }
+    else {
+        hardware->incrementProgramCounter();
+    }
     return 1;
 }
 
 int JVS::execute() {
-    cout << "JVS Execute";
+    if(hardware->getOverflow() == 1){
+        hardware->setProgramCounter(stoi(argValue));
+    }
+    else {
+        hardware->incrementProgramCounter();
+    }
     return 1;
 }
 
 int ADD::execute() {
-    cout << "ADD Execute";
+    hardware->setRegisterA(hardware->getRegisterA() + hardware->getRegisterB());
+    if (hardware->getRegisterA() == 0) {
+        hardware->setZeroResult(1);
+    }
+    else {
+        hardware->setZeroResult(0);
+    }
+    if (hardware->getRegisterA() > (pow(2, 31) - 1) ||
+            hardware->getRegisterA() < -(pow(2, 31))) {
+        hardware->setOverflow(1);
+    }
+    else {
+        hardware->setOverflow(0);
+    }
+    hardware->incrementProgramCounter();
     return 1;
 }
 
 int HLT::execute() {
-    cout << "HLT Execute";
+    hardware->display();
+    hardware->incrementProgramCounter();
+    hardware->setRegisterA(0);
+    hardware->setRegisterB(0);
+    hardware->setOverflow(0);
+    hardware->setZeroResult(0);
     return -1;
 }
