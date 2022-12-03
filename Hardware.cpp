@@ -63,6 +63,25 @@ void Hardware::showInstructions() {
     }
 }
 
+int Hardware::executeNextInstruction() {
+    if(program_memory[program_counter] == nullptr) {
+        return 0;
+    }
+    else {
+        int isHalt = program_memory[program_counter]->execute();
+        program_counter++;
+        return isHalt;
+    }
+}
+
+void Hardware::display() {
+    cout << "Register A is " << register_a << "\n"
+        << "Register B is " << register_b << "\n"
+        << "Zero bit is " << zero_result << "\n"
+        << "Overflow bit is " << overflow << "\n"
+        << "Program counter is " << program_counter << endl;
+}
+
 Hardware::~Hardware() {
 
 }

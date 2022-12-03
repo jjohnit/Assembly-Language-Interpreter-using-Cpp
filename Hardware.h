@@ -46,6 +46,10 @@ public:
 
     void showInstructions();
 
+    int executeNextInstruction();
+
+    void display();
+
     virtual ~Hardware();
 };
 

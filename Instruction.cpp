@@ -47,46 +47,57 @@ ADD::ADD(const string &instruction) : Instruction(instruction) {}
 
 HLT::HLT(const string &instruction) : Instruction(instruction) {}
 
-void DEC::execute() {
+int DEC::execute() {
     cout << "DEC Execute" << std::endl;
+    return 1;
 }
 
-void LDA::execute() {
+int LDA::execute() {
     cout << "LDA Execute";
+    return 1;
 }
 
-void LDB::execute() {
+int LDB::execute() {
     cout << "LDB Execute";
+    return 1;
 }
 
-void LDI::execute() {
+int LDI::execute() {
     cout << "LDI Execute";
+    return 1;
 }
 
-void STR::execute() {
+int STR::execute() {
     cout << "STR Execute";
+    return 1;
 }
 
-void XCH::execute() {
+int XCH::execute() {
     cout << "XCH Execute";
+    return 1;
 }
 
-void JMP::execute() {
+int JMP::execute() {
     cout << "JMP Execute";
+    return 1;
 }
 
-void JZS::execute() {
+int JZS::execute() {
     cout << "JZS Execute";
+    return 1;
 }
 
-void JVS::execute() {
+int JVS::execute() {
     cout << "JVS Execute";
+    return 1;
 }
 
-void ADD::execute() {
+int ADD::execute() {
     cout << "ADD Execute";
+    return 1;
 }
 
-void HLT::execute() {
+int HLT::execute() {
     cout << "HLT Execute";
+    return -1;
 }

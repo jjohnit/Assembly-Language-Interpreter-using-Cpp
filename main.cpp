@@ -65,7 +65,18 @@ int main() {
 
             hardware.addInstruction(instruction);
         }
-        hardware.showInstructions();
+//        hardware.showInstructions();
+    }
+
+    // Reset the program counter to start from the 0th position
+    hardware.setProgramCounter(0);
+    // Execute the instruction
+    while(true) {
+        // break when there is no instruction to execute or after executing halt
+        if (hardware.executeNextInstruction() <= 0){
+            hardware.display();
+            break;
+        }
     }
 
     return 0;
