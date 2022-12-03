@@ -65,18 +65,36 @@ int main() {
 
             hardware.addInstruction(instruction);
         }
-//        hardware.showInstructions();
     }
 
     // Reset the program counter to start from the 0th position
     hardware.setProgramCounter(0);
-    // Execute the instruction
-    while(true) {
-        // break when there is no instruction to execute or after executing halt
-        if (hardware.executeNextInstruction() <= 0){
-            break;
+
+    while (true){
+        cout << "s -> Execute a single line of code\n"
+                "a -> Execute all the instructions until a halt instruction\n"
+                "q -> Quit" << endl;
+        cout << "Enter a command :";
+        char command;
+        cin >> command;
+        cout << "\n";
+        switch (command) {
+            case 's':
+                hardware.executeNextInstruction();
+                hardware.display();
+                break;
+            case 'a':
+                // Execute the instruction
+                while(true) {
+                    // break when there is no instruction to execute or after executing halt
+                    if (hardware.executeNextInstruction() <= 0){
+                        break;
+                    }
+                }
+                break;
+            case 'q':
+                return 0;
         }
     }
-
     return 0;
 }

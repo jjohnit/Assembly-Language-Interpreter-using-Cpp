@@ -89,16 +89,16 @@ int Hardware::executeNextInstruction() {
 
 void Hardware::display() {
     // Display the values of arguments in data memory
-    cout << "Data memory contains : " << endl;
+    cout << "\nData memory contains : " << endl;
     for (auto i : data_memory){
         cout << i.first << " = " << i.second << endl;
     }
 
     cout << "Register A is " << register_a << "\n"
-        << "Register B is " << register_b << "\n"
-        << "Zero bit is " << zero_result << "\n"
-        << "Overflow bit is " << overflow << "\n"
-        << "Program counter is " << program_counter << endl;
+        "Register B is " << register_b << "\n"
+        "Zero bit is " << zero_result << "\n"
+        "Overflow bit is " << overflow << "\n"
+        "Program counter is " << program_counter << "\n" << endl;
 }
 
 Hardware::~Hardware() {
