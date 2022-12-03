@@ -12,11 +12,12 @@
 using namespace std;
 
 class Instruction {
-    std::string printString, argValue;
 
 public:
+    string printString, argValue;
     Instruction();
     Instruction(string instruction);
+    static Hardware hardware;
     virtual void execute() = 0;
 };
 

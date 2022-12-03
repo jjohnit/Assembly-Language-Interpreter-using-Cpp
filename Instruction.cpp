@@ -9,6 +9,8 @@
 
 using namespace std;
 
+Hardware Instruction::hardware;
+
 Instruction::Instruction() {
     printString = argValue = "";
 }
@@ -20,7 +22,7 @@ Instruction::Instruction(std::string instruction) {
     splittedString >> printString;
     splittedString >> argValue;
 
-    cout << "data members are " << printString << " & " << argValue << std::endl;
+//    cout << "data members are " << printString << " & " << argValue << std::endl;
 }
 
 DEC::DEC(const std::string &instruction) : Instruction(instruction) {}

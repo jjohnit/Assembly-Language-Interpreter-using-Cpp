@@ -42,6 +42,10 @@ public:
 
     void setOverflow(int overflow);
 
+    void addInstruction(Instruction* i);
+
+    void showInstructions();
+
     virtual ~Hardware();
 };
 

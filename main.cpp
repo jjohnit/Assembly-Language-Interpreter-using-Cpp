@@ -9,6 +9,7 @@ using namespace std;
 
 int main() {
     Hardware hardware;
+    Instruction::hardware = hardware;
 
     // For reading a file
     fstream file;
@@ -59,8 +60,12 @@ int main() {
             }
             else {
                 cout << "Couldn't recognise the instruction type " << instruction_type << endl;
+                break;
             }
+
+            hardware.addInstruction(instruction);
         }
+        hardware.showInstructions();
     }
 
     return 0;
