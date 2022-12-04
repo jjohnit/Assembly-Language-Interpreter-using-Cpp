@@ -17,6 +17,7 @@ ALI::ALI() {
 }
 
 void ALI::execute() {
+    Instruction *instruction;
     // For reading a file
     while (true) {
         cout << "Enter the name of file with instructions :";
@@ -33,7 +34,6 @@ void ALI::execute() {
             while (getline(file, sal)) {
 
                 // Create the instruction object based on the instruction type.
-                Instruction *instruction;
                 stringstream stream(sal);
                 stream >> instruction_type;
 
@@ -117,6 +117,7 @@ void ALI::execute() {
                 }
                 break;
             case 'q':
+//                delete instruction;
                 return;
         }
     }

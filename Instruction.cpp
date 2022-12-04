@@ -6,6 +6,7 @@
 #include "iostream"
 #include <sstream>
 #include <cmath>
+#include <climits>
 
 #include "Instruction.h"
 

@@ -109,4 +109,7 @@ void Hardware::display() {
 }
 
 Hardware::~Hardware() {
+    for(auto instruction: program_memory){
+        delete instruction;
+    }
 }
