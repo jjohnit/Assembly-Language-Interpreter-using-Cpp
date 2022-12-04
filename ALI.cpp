@@ -121,3 +121,7 @@ void ALI::execute() {
         }
     }
 }
+
+ALI::~ALI() {
+    delete hardware;
+}

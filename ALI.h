@@ -14,6 +14,8 @@ public:
     ALI();
 
     void execute();
+
+    virtual ~ALI();
 };
 
 
