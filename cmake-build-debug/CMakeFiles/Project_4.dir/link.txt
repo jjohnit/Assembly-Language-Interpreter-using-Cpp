@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/Project_4.dir/main.cpp.o CMakeFiles/Project_4.dir/Hardware.cpp.o CMakeFiles/Project_4.dir/Instruction.cpp.o CMakeFiles/Project_4.dir/ALI.cpp.o -o Project_4 

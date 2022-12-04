@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Project_4"
+			"path" : "Project_4.exe"
+		},
+		{
+			"path" : "Project_4.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -42,6 +45,14 @@
 				}
 			],
 			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "11"
+			},
 			"sourceIndexes" : 
 			[
 				0,
@@ -63,12 +74,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "Project_4",
-	"nameOnDisk" : "Project_4",
+	"nameOnDisk" : "Project_4.exe",
 	"paths" : 
 	{
 		"build" : ".",
